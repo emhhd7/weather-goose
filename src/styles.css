@@ -1,0 +1,24 @@
+html {
+    background-color: rgb(195, 228, 250);
+}
+
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-evenly;
+    color: black;
+}
+
+.weeklyCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.weatherCard {
+    display: flex;
+    justify-content: space-between;
+    width: 23%;
+}
