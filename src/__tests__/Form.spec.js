@@ -3,11 +3,12 @@ import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Form from '../components/Details'
 
-describe('<Form />', () => {
-    let getByTestId;
-})
+
+
 
 describe('clicking the weather button', () => {
+
+    let getByTestId;
     beforeEach(async () => {
         ({ getByTestId } = render(<Form />));
 
@@ -15,11 +16,13 @@ describe('clicking the weather button', () => {
             getByTestId('zipcode'),
             '30324',
         );
-        userEvent.click(getByTestId('weatherButton'))
-
-        it('clicks', () => {
-            expect(getByTestId('zipcode').value).toEqual('30324');
-        });
-
     })
+
+    it('clicks', () => {
+        // userEvent.click(getByTestId('weatherButton'))
+        const actual = getByTestId('zipcode').value;
+        const expected = '30324';
+        expect(actual).toEqual(expected);
+    });
+
 })
