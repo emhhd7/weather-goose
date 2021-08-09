@@ -1,15 +1,13 @@
 import Navigation from "./components/Navigation";
-import WeatherDetails from "./components/WeatherDetails";
-import Form from "./components/Form";
-
+import Details from "./components/Details";
 import './styles.css';
 
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <Form />
-      <WeatherDetails />
+      <br></br>
+      <Details />
     </div>
   );
 }

@@ -8,23 +8,16 @@ class Card extends React.Component {
 
     render() {
         return (
-            <div class="weatherCard">
-                <div class="weatherDetails">
+            <div className="weatherCard">
+                <div className="weatherDetails">
+                    <div>{this.props.day}</div>
+                    <div>{this.props.dayTemperature}°</div>
                     <div>{this.props.weather}</div>
-                    <div>{this.props.description}</div>
                 </div>
-                <img src={this.props.image}></img>
+                <img src={this.props.image} alt={this.props.weather}></img>
             </div >
         )
     }
 }
 
 export default Card;
-
-
-// <div>
-// <p>81</p>
-// <p>Partly cloud</p>
-// <p>Atlanta, Georga, United States</p>
-// <p>Thursday, 2:15pm</p>
-// </div>
