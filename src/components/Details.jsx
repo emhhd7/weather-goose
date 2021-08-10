@@ -49,9 +49,10 @@ class Details extends Component {
         return (
             <form>
                 <center>
-                    <label>Please enter a zip code:
+                    <label>
                         <input type="text" data-testid="zipcode" value={this.state.zipcode} onChange={(event) => this.changeHandler(event)}></input>
                     </label>
+                    <br></br>
                     <button type="button" data-testid="weatherButton" onClick={() => { this.clickHandler() }}>Honk!</button>
                     <br></br>
                 </center>
@@ -63,8 +64,21 @@ class Details extends Component {
     render() {
         return (
             <div>
-                {this.Form()}
-                <center><p>The Forecast in {this.state.name} is...</p></center>
+                <div className="gooseImage">
+                    <img src="./goose.jpeg" />
+
+                    <div className="welcomeColumn">
+                        <h1>Weather Goose</h1>
+                        {!this.state.name ?
+                            <div className="welcomeBox">
+                                <p>Please type a zip code to see the forecast!</p>
+                            </div>
+                            :
+                            <p>The Forecast in {this.state.name} is...</p>
+                        }
+                        {this.Form()}
+                    </div>
+                </div>
                 <WeatherCard abc={this.state.data} />
             </div>
         )

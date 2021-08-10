@@ -1,7 +1,65 @@
 html {
-    background-color: rgb(195, 228, 250);
+    background-color: rgb(148, 173, 255);
 }
 
+body {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+}
+
+body h1, p {
+    text-align: center;
+}
+
+input {
+    border-radius: 5px;
+    border-style: none;
+    height: 30px;
+    width: 300px;
+    margin: 10px;
+    outline: none;
+    border: 2px solid rgb(32, 75, 22);
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    background-color: #f0933d; /* Green */
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+button:hover {
+      color: black;
+  }
+
+.gooseImage img {
+    border-radius: 200px;
+    height: 15%;
+    width: 15%;
+}
+
+.gooseImage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.welcomeColumn {
+    margin-left: 50px;
+}
 
 ul {
     display: flex;
@@ -19,6 +77,34 @@ ul {
 
 .weatherCard {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    width: 23%;
+    color: white;
+    background-color: rgba(21, 121, 151, 0.822);
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 10px 10px 8px rgba(46, 37, 37, 0.63);
+}
+
+.firstCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 70px
+    /* margin-top: 20px; */
+}
+
+.firstCardDetails{
+    /* padding-top: 50px; */
+    padding-right: 90px;
+    background-color: orange;
+    /* width: 30%; */
+    font-size: 1.80em;
+}
+
+.allCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

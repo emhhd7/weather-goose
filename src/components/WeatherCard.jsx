@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/styles.css';
 import Card from './Card';
 
 // Date Conversion plugins
@@ -14,13 +13,19 @@ dayjs.extend(isoWeek);
 class WeatherCard extends React.Component {
     constructor(props) {
         super()
-        this.state = { display: true }
+        this.state = {
+            display: true,
+            firstDay: {}
+        }
     }
 
+
+
     createCards = () => {
+        let weatherList;
         if (!!this.props.abc) {
             const timezone = this.props.abc.timezone
-            return this.props.abc.daily.map((day, id) => {
+            weatherList = this.props.abc.daily.map((day, id) => {
                 return (
                     <Card
                         key={id}
@@ -29,13 +34,41 @@ class WeatherCard extends React.Component {
                         weather={day.weather[0].main}
                         description={day.weather[0].description}
                         image={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+
+                        min={this.convertTemp(day.temp.min)}
+                        max={this.convertTemp(day.temp.max)}
                     />
                 )
             })
+                .filter((_, id) => id < 7);
+            weatherList.shift()
+            return weatherList;
+
         } else {
             return null;
         }
+    }
 
+    createFirstCard = () => {
+        if (!!this.props.abc) {
+            const timezone = this.props.abc.timezone
+            const firstDay = this.props.abc.daily[0];
+            return (
+                <Card
+                    day={"Today"}
+                    today={true}
+                    dayTemperature={this.convertTemp(firstDay.temp.day)}
+                    weather={firstDay.weather[0].main}
+                    description={firstDay.weather[0].description}
+                    image={`https://openweathermap.org/img/wn/${firstDay.weather[0].icon}@4x.png`}
+
+                    min={this.convertTemp(firstDay.temp.min)}
+                    max={this.convertTemp(firstDay.temp.max)}
+                />
+            )
+        } else {
+            return null;
+        }
     }
 
     convertDate = (milliseconds, timezone) => {
@@ -63,8 +96,13 @@ class WeatherCard extends React.Component {
 
     render() {
         return (
-            <div className="weeklyCards">
-                {this.createCards()}
+            <div className="allCards">
+                <div className="firstCard">
+                    {this.createFirstCard()}
+                </div>
+                <div className="weeklyCards">
+                    {this.createCards()}
+                </div>
             </div>
         )
     }
