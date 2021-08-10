@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/styles.css';
 import Card from './Card';
 
 // Date Conversion plugins
@@ -41,7 +40,7 @@ class WeatherCard extends React.Component {
                     />
                 )
             })
-            .filter((_, id) => id < 7);
+                .filter((_, id) => id < 7);
             weatherList.shift()
             return weatherList;
 
@@ -54,13 +53,14 @@ class WeatherCard extends React.Component {
         if (!!this.props.abc) {
             const timezone = this.props.abc.timezone
             const firstDay = this.props.abc.daily[0];
-            return(
+            return (
                 <Card
-                    day={this.convertDate(firstDay.dt, timezone).day}
+                    day={"Today"}
+                    today={true}
                     dayTemperature={this.convertTemp(firstDay.temp.day)}
                     weather={firstDay.weather[0].main}
                     description={firstDay.weather[0].description}
-                    image={`https://openweathermap.org/img/wn/${firstDay.weather[0].icon}@2x.png`}
+                    image={`https://openweathermap.org/img/wn/${firstDay.weather[0].icon}@4x.png`}
 
                     min={this.convertTemp(firstDay.temp.min)}
                     max={this.convertTemp(firstDay.temp.max)}
@@ -96,8 +96,8 @@ class WeatherCard extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="weeklyCards">
+            <div className="allCards">
+                <div className="firstCard">
                     {this.createFirstCard()}
                 </div>
                 <div className="weeklyCards">

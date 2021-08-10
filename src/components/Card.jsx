@@ -15,16 +15,17 @@ class Card extends React.Component {
     render() {
         const { displayExtended } = this.state
         return (
-            <div className="weatherCard" onClick={this.handleClick}>
+            <div className={this.props.today === true ? "weatherCard firstCardDetails": "weatherCard"} onClick={this.handleClick}>
                 <div className="weatherDetails">
                     {!!displayExtended ? (
-                        <>
+                        <div>
                             <div>{this.props.day}</div>
                             <div>{this.props.dayTemperature}°</div>
                             <div>{this.props.weather}</div>
-                        </>
+                        </div>
                     ) : (
                         <div className="extendedDetails">
+                            <div>{this.props.day}</div>
                             <div>Low: {this.props.min}°</div>
                             <div>High: {this.props.max}°</div>
                             <div>{this.props.description}</div>
